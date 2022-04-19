@@ -17,6 +17,14 @@ export class PortfolioComponent implements OnInit {
   urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6';
   urlChuck='https://api.chucknorris.io/jokes/random';
 
+  prevPage(){
+    this.page>1 ?this.page-- : null;
+    this.urlPicsum = 'https://picsum.photos/v2/list?page='+this.page+'&limit=6';
+    this.loadPics();
+    console.log(this.page);
+    console.log(this.urlPicsum)
+  }
+
   nextPage(){
     this.page=this.page+1;
     this.urlPicsum = 'https://picsum.photos/v2/list?page='+this.page+'&limit=6';
