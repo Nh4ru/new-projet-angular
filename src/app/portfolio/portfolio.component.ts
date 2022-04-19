@@ -13,8 +13,17 @@ export class PortfolioComponent implements OnInit {
   joke:any;
   jokeNotFound = true;
   gallery:any;
-  urlPicsum='https://picsum.photos/v2/list?page=2&limit=24';
+  page=1;
+  urlPicsum='https://picsum.photos/v2/list?page='+this.page+'&limit=6';
   urlChuck='https://api.chucknorris.io/jokes/random';
+
+  nextPage(){
+    this.page=this.page+1;
+    this.urlPicsum = 'https://picsum.photos/v2/list?page='+this.page+'&limit=6';
+    this.loadPics();
+    console.log(this.page);
+    console.log(this.urlPicsum)
+  }
 
   getUrl(url:string){
     return this.http.get(url);
