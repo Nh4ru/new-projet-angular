@@ -25,6 +25,14 @@ export class PortfolioComponent implements OnInit {
     console.log(this.urlPicsum)
   }
 
+  goToPage(nbr:number){
+    this.page=nbr;
+    this.urlPicsum = 'https://picsum.photos/v2/list?page='+nbr+'&limit=6';
+    this.loadPics();
+    console.log(this.page);
+    console.log(this.urlPicsum)
+  }
+
   nextPage(){
     this.page=this.page+1;
     this.urlPicsum = 'https://picsum.photos/v2/list?page='+this.page+'&limit=6';
