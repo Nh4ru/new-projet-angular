@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ViewportScroller } from '@angular/common';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -21,35 +20,6 @@ export class PortfolioComponent implements OnInit {
   urlPicsum='';
   urlChuck= this.api.urlChuck;
 
-  // prevPage(){
-  //   this.page>1 ?this.page-- : null;
-  //   this.urlPicsum = 'https://picsum.photos/v2/list?page='+this.page+'&limit=6';
-  //   this.loadPics();
-  //   this.scroll.scrollToAnchor("top");
-  //   console.log(this.page);
-  //   console.log(this.urlPicsum)
-  // }
-
-  // goToPage(nbr:number){
-  //   this.page=nbr;
-  //   this.urlPicsum = 'https://picsum.photos/v2/list?page='+nbr+'&limit=6';
-  //   this.loadPics();
-  //   this.scroll.scrollToAnchor("top");
-  //   console.log(this.page);
-  //   console.log(this.urlPicsum)
-  // }
-
-  // nextPage(){
-  //   this.page=this.page+1;
-  //   this.urlPicsum = 'https://picsum.photos/v2/list?page='+this.page+'&limit=6';
-  //   this.loadPics();
-  //   this.scroll.scrollToAnchor("top");
-  //   console.log(this.page);
-  //   console.log(this.urlPicsum)
-  // }
-
-  
-
   loadPics(way="",nbr=this.page){
     switch(way){
       case 'next':this.page++;
@@ -59,7 +29,7 @@ export class PortfolioComponent implements OnInit {
       case '':this.page=nbr;
         break;  
     }
-    this.urlPicsum = 'https://picsum.photos/v2/list?page='+this.page+'&limit=6';
+    this.urlPicsum = this.api.listPicsum(this.page);
     this.scroll.scrollToAnchor("top");
     this.api.getUrl(this.urlPicsum).subscribe(
       data => {
