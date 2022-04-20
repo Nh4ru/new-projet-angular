@@ -13,7 +13,7 @@ export class DetailsComponent implements OnInit {
 
   itemId = '';
   itemInfo:any;
-  imgSrc = '';
+  imgSrc = './assets/images/loader.gif';
   gray = false;
   blur=0;
 
@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
     this.gray? this.imgSrc +='grayscale&' : null;
     this.blur>0? this.imgSrc += 'blur=' + this.blur : null;
   }
-  
+
   grayscale(){
     this.gray=!this.gray;
     this.generateSrc();
