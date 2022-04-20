@@ -1,0 +1,29 @@
+<section class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h2>This picture is from {{itemInfo?.author}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <img class="img-fluid" [src]="imgSrc" [alt]="'Picture from '+itemInfo?.author">
+            <div class="card-body">
+                <h5 class="card-title">Auteur : {{itemInfo?.author}}</h5>
+                <p>Largeur : {{itemInfo?.width}}</p>
+                <p>Hauteur : {{itemInfo?.height}}</p>
+                <p>Url : {{itemInfo?.download_url}}</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a (click)="grayscale()" class="btn btn-primary">
+                    <span *ngIf="!gray">Niveaux de gris</span>
+                    <span *ngIf="gray">Couleurs</span>
+                </a>
+                <a (click)="addBlur()" class="btn btn-primary m-2">
+                    Ajouter du flou {{blur}}
+                </a>
+                <a href="{{itemInfo?.download_url}}" class="btn btn-primary">Télécharger</a>
+                <a [routerLink]="'/portfolio/'" href="" class="btn btn-primary">Retour Portfolio</a>
+            </div>
+        </div>
+    </div>
+</section>

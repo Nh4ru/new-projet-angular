@@ -1,0 +1,11 @@
+div.card, h2{
+    text-align: center;
+}
+
+.btn{
+    margin: 2vh;
+}
+
+:hover.btn{
+    background-color: turquoise;
+}
