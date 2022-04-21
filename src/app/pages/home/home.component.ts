@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  constructor(public api:ApiService) { }
+  constructor(
+    public api:ApiService,
+    public settings:SettingsService,
+    ) { }
 
   title = "Home";
   gallery =[
@@ -72,6 +76,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.changeImage();
+    this.settings.displayCarousel = true;
 
   }
 

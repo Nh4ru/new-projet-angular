@@ -30,7 +30,8 @@
     </div>
     <div class="row">
         <div *ngFor="let pic of gallery" class="col-12 col-md-4 mb-2">
-            <div class="card">
+            <div data-aos="flip-left"
+            data-aos-easing="ease-out-cubic" class="card">
               <a [routerLink]="'/portfolio/'+pic.id">
                 <img [src]="api.imgPicsum(pic.id)" class="img-fluid" [alt]="'Picture from '+pic.author">
               </a>  

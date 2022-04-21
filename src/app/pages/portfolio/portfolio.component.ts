@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { ApiService } from 'src/app/services/api.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -11,7 +12,8 @@ export class PortfolioComponent implements OnInit {
 
   constructor(
     public scroll:ViewportScroller,
-    public api:ApiService) { }
+    public api:ApiService,
+    public settings:SettingsService) { }
 
   joke:any;
   jokeNotFound = true;
@@ -19,6 +21,8 @@ export class PortfolioComponent implements OnInit {
   page=1;
   urlPicsum='';
   urlChuck= this.api.urlChuck;
+
+  
 
   loadPics(way="",nbr=this.page){
     switch(way){
@@ -45,8 +49,10 @@ export class PortfolioComponent implements OnInit {
         this.joke = data;
         this.jokeNotFound = false;
         console.log(data);
+        
       }
     )
     this.loadPics();
+    this.settings.displayCarousel = false;
   }
 }
