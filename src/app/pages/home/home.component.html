@@ -26,15 +26,70 @@
 
             <ol>
                 <li *ngFor="let img of jsonImg">
-                   <img width="50" [src]=" 'assets/images/' + img.url " [alt]="img.alt">
+                    <img width="50" [src]=" 'assets/images/' + img.url " [alt]="img.alt">
                 </li>
             </ol>
 
-            <p [ngStyle]="{'display': myProp, 'color': 'red'}" (click)="myProp='none'">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur nam eveniet unde beatae, ab ducimus neque libero. Magni consequatur est voluptate ad eos repellendus quisquam atque, rerum non deleniti ut beatae eum iure laudantium eaque. Modi quas illo iusto eaque hic similique exercitationem nisi facilis ea vel aliquam ut reiciendis, sunt quisquam repudiandae laudantium odit nam quaerat? Ullam hic neque atque.</p>
+            <p [ngStyle]="{'display': myProp, 'color': 'red'}" (click)="myProp='none'">Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit. Aspernatur nam eveniet unde beatae, ab ducimus neque libero. Magni
+                consequatur est voluptate ad eos repellendus quisquam atque, rerum non deleniti ut beatae eum iure
+                laudantium eaque. Modi quas illo iusto eaque hic similique exercitationem nisi facilis ea vel aliquam ut
+                reiciendis, sunt quisquam repudiandae laudantium odit nam quaerat? Ullam hic neque atque.</p>
             <p [ngClass]="{'text-primary': myValue}" (click)="myValue=!myValue">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo recusandae temporibus esse mollitia ad est et sequi culpa sunt! Ab nostrum perferendis officiis totam amet similique laborum temporibus labore quisquam. Ad aspernatur enim, molestias fugit maxime nulla autem quisquam soluta maiores illum. Quo veritatis ex molestiae a ea, quia voluptate commodi cupiditate voluptatum repellat vero perspiciatis delectus libero corrupti. Qui nam, ex, quia debitis odit nihil aliquam tenetur earum reiciendis dicta reprehenderit labore harum voluptates obcaecati ab ratione incidunt atque nostrum illo nulla odio? Quibusdam, minus culpa atque aliquid quia nemo reprehenderit. Vel, placeat? Optio in quo animi atque delectus, cupiditate expedita non ipsam doloribus quam, quis, numquam asperiores aliquid distinctio perspiciatis saepe a! Quisquam sed tempora exercitationem quae sint.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo recusandae temporibus esse mollitia ad
+                est et sequi culpa sunt! Ab nostrum perferendis officiis totam amet similique laborum temporibus labore
+                quisquam. Ad aspernatur enim, molestias fugit maxime nulla autem quisquam soluta maiores illum. Quo
+                veritatis ex molestiae a ea, quia voluptate commodi cupiditate voluptatum repellat vero perspiciatis
+                delectus libero corrupti. Qui nam, ex, quia debitis odit nihil aliquam tenetur earum reiciendis dicta
+                reprehenderit labore harum voluptates obcaecati ab ratione incidunt atque nostrum illo nulla odio?
+                Quibusdam, minus culpa atque aliquid quia nemo reprehenderit. Vel, placeat? Optio in quo animi atque
+                delectus, cupiditate expedita non ipsam doloribus quam, quis, numquam asperiores aliquid distinctio
+                perspiciatis saepe a! Quisquam sed tempora exercitationem quae sint.
             </p>
-            
+
         </div>
+    </div>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div *ngFor="let pic of gallery" class="carousel-inner">
+            <div class="carousel-item active">
+                <img [src]="api.imgPicsum(pic.id)" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img [src]="api.imgPicsum(pic.id)" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img [src]="api.imgPicsum(pic.id)" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </section>

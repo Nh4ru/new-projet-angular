@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,26 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(public api:ApiService) { }
 
   title = "Home";
+  gallery =[
+    {
+      url: 'avenue-815297_640.jpg',
+      alt: 'Avenue dans les bois...',
+      id: 1
+    },
+    {
+      url: 'road-1072821_640.jpg',
+      alt: 'Vue d\'Automne',
+      id:2
+    },
+    {
+      url: 'tree-276014_640.jpg',
+      alt: 'Arbre du printemps',
+      id:3
+    }
+  ];
 
   // déclaration du tableau
   arrayImg = [
