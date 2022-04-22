@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings.service';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +10,10 @@ import { SettingsService } from 'src/app/services/settings.service';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(public settings: SettingsService) { }
+  constructor(
+    public settings: SettingsService,
+    public http:HttpClient,
+    public router:Router) { }
 
   firstname = '';
   lastname = '';
@@ -34,10 +39,20 @@ export class ContactComponent implements OnInit {
     let validation = score === max ? true : false;
 
     if (validation) {
-      console.log('YAAAAATAAAAAA ! Le formulaire est good', formData);
+      console.log('YAAAAATAAAAAA ! ARIGATO GOZAIMASU', formData);
+      
+      const headers = new HttpHeaders()
+      .set('Content-Type', 'application:x-www-form-urlencode');
+      
+      this.http.post("https://httpbin.org/post", formData, {headers}).subscribe(
+        response => {
+          console.log('le serveur nous répond', response);
+          this.router.navigateByUrl('/portfolio');
+        }
+      )
     }
     else {
-      alert('GAMEOVER ! Insert coins !\n' + errorMessage);
+      alert('GAME-OVER ! Insert coins !\n' + errorMessage);
     }
 
     console.log(formData);
